@@ -1,22 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
-export default function App() {
+const NavBar = ({ icons, selectedIndex, onPress }) => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.navbar}>
+      {icons.map((item, index) => (
+        <TouchableOpacity
+          key={index}
+          onPress={() => onPress(index)}
+          style={[styles.navItem, index === selectedIndex && styles.selectedNavItem]}
+        >
+          <FeatherIcon name={item.icon} size={24} color={index === selectedIndex ? '#fff' : '#000'} />
+        </TouchableOpacity>
+      ))}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  navbar: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 20,
+    backgroundColor: '#3498db', 
+    top: '100%',
+    width: '100%',
+  },
+  navItem: {
     alignItems: 'center',
-    justifyContent: 'center',
-    
-
+  },
+  selectedNavItem: {
+    color: '#fff',
+    borderRadius: 5,
   },
 });
+
+export default NavBar;

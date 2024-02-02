@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Image, View, Text } from 'react-native';
 import Svg, { Path, Polygon } from "react-native-svg"
+import NavBar from './components/navbar';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,9 @@ export default function App() {
           </Svg>
         </View>
         <View style={{ flex: 1, flexDirection: 'row', marginTop: 300 }}> 
+      <View style={styles.container}>
+        <Image source={require('./assets/splash.png')} style={{ width: 250, height: 250, marginTop: 220, marginBottom: 220 }} />
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}> 
           <Text style={{ color: 'white', fontSize: 20, marginRight: 15 }}>By </Text>
           <Svg viewBox='0 0 300 300' width={220} height={220}>
             <Polygon fill="#fff" points="83.52 33.55 91.11 33.55 87.48 11.36 83.52 33.55"/>
@@ -42,4 +46,33 @@ export default function App() {
       </View>
     );
   }
+
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  return (
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+      <NavBar
+        icons={[
+          { label: 'Home', icon: 'home' },
+          { label: 'User', icon: 'user' },
+          { label: 'Settings', icon: 'settings' },
+          { label: 'Bell', icon: 'bell' },
+        ]}
+        selectedIndex={selectedIndex}
+        onPress={(index) => setSelectedIndex(index)}
+      />
+    </View>
+  );
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
+
 }
