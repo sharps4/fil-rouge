@@ -1,0 +1,14 @@
+{
+    "1" : {
+        "avitailler"  : "Fournir le navire et son équipage en consommables (eau potable, vivre, carburant, matériel etc…).",
+        "arrimer"     : "Attacher solidement les marchandises à bord des navires pour ne pas qu'elles basculent.",
+        "bigue"       : "Type de grue portuaire pouvant également être placé sur des navires.",
+        "cargaison"   : "Marchandise chargée à bord.",
+        "darse"       : "Bassin rectangulaire destiné à l'accostage des navires.",
+        "entreposeur" : "Personne ayant une autorisation de gérer l'entrepôt douanier.",
+        "depoter"     : "Vider un conteneur de la marchandise qu'il contient.",
+        "sycoscan"    : "Outil permettant aux services douaniers de scanner un conteneur afin de contrôler la marchandise qu'il contient.",
+        "noeud"       : "Unité de vitesse correspondant à un mille marin (1852 mètres) à l'heure.",
+        "port"        : "Abri naturel ou artificiel aménagé pour recevoir les navires, pour l'embarquement et le débarquement de leur chargement."
+    }
+}

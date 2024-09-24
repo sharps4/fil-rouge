@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "lh-port-days",
+    "slug": "lh-port-days",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.svg",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/icon.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.svg",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.clement276.lhportdays"
+    },
+    "web": {
+      "favicon": "./assets/icon.svg"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "98d428b3-3250-4e0a-8627-e2313ffa4e9f"
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "name"        : "Parcours 1",
+        "description" : "",
+        "stands"      : ["33", "8", "13"]
+    },
+    {
+        "name"        : "Parcours 2",
+        "description" : "",
+        "stands"      : ["38", "41", "14"]
+    },
+    {
+        "name"        : "Parcours 3",
+        "description" : "",
+        "stands"      : ["19", "9", "46"]
+    },
+    {
+        "name"        : "Parcours 4",
+        "description" : "",
+        "stands"      : ["30", "43", "4"]
+    },
+    {
+        "name"        : "Parcours 5",
+        "description" : "",
+        "stands"      : ["28", "2", "47"]
+    },
+    {
+        "name"        : "Parcours 6",
+        "description" : "",
+        "stands"      : ["29", "25", "45"]
+    },
+    {
+        "name"        : "Parcours 7",
+        "description" : "",
+        "stands"      : ["11", "5", "7"]
+    },
+    {
+        "name"        : "Parcours 8",
+        "description" : "",
+        "stands"      : ["32", "18", "12"]
+    }
+]

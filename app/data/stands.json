@@ -1,0 +1,251 @@
+{
+    "map" : {
+        "width"  : 14,
+        "height" : 14
+    },
+    "stands" : {
+        "39" : {
+            "from"      : {"x" : 2, "y" : 0},
+            "to"        : {"x" : 3, "y" : 0},
+            "companies" : ["GMP"],
+            "game"      : "Hangman1"
+        },
+        "38" : {
+            "from"      : {"x" : 5, "y" : 0},
+            "to"        : {"x" : 7, "y" : 0},
+            "companies" : ["MSC", "TN"],
+            "game"      : "Quizz2"
+        },
+        "37" : {
+            "from"      : {"x" : 8, "y" : 0},
+            "to"        : {"x" : 8, "y" : 0},
+            "companies" : ["BBL CARGO"]
+        },
+        "36" : {
+            "from"      : {"x" : 10, "y" : 0},
+            "to"        : {"x" : 10, "y" : 0},
+            "companies" : ["DERUDDER"]
+        },
+        "40" : {
+            "from"      : {"x" : 0, "y" : 1},
+            "to"        : {"x" : 0, "y" : 1},
+            "companies" : ["AFPA"]
+        },
+        "41" : {
+            "from"      : {"x" : 0, "y" : 2},
+            "to"        : {"x" : 0, "y" : 4},
+            "companies" : ["UNIVERSITE"]
+        },
+        "42" : {
+            "from"      : {"x" : 0, "y" : 5},
+            "to"        : {"x" : 0, "y" : 5},
+            "companies" : ["UIMM"]
+        },
+        "43" : {
+            "from"      : {"x" : 0, "y" : 6},
+            "to"        : {"x" : 0, "y" : 6},
+            "companies" : ["SCHOLAR"]
+        },
+        "32" : {
+            "from"      : {"x" : 2, "y" : 2},
+            "to"        : {"x" : 2, "y" : 4},
+            "companies" : ["UNIVERSITE"]
+        },
+        "33" : {
+            "from"      : {"x" : 3, "y" : 2},
+            "to"        : {"x" : 3, "y" : 2},
+            "companies" : ["EMN C"]
+        },
+        "34" : {
+            "from"      : {"x" : 3, "y" : 3},
+            "to"        : {"x" : 3, "y" : 3},
+            "companies" : ["EMN IPER"]
+        },
+        "31" : {
+            "from"      : {"x" : 3, "y" : 4},
+            "to"        : {"x" : 3, "y" : 4},
+            "companies" : ["OPCO"]
+        },
+        "30" : {
+            "from"      : {"x" : 10, "y" : 2},
+            "to"        : {"x" : 10, "y" : 4},
+            "companies" : ["SEAFRIGO"],
+            "game"      : "Quizz4"
+        },
+        "29" : {
+            "from"      : {"x" : 11, "y" : 2},
+            "to"        : {"x" : 11, "y" : 4},
+            "companies" : ["STH"]
+        },
+        "35" : {
+            "from"      : {"x" : 13, "y" : 1},
+            "to"        : {"x" : 13, "y" : 2},
+            "companies" : ["SEALOGIS"],
+            "game"      : "IntruderMultimodalite"
+        },
+        "28" : {
+            "from"      : {"x" : 13, "y" : 3},
+            "to"        : {"x" : 13, "y" : 4},
+            "companies" : ["HAROPA PORT"],
+            "game"      : "IntruderManutention"
+        },
+        "22" : {
+            "from"      : {"x" : 2, "y" : 6},
+            "to"        : {"x" : 2, "y" : 6},
+            "companies" : ["ISTELI"]
+        },
+        "21" : {
+            "from"      : {"x" : 2, "y" : 7},
+            "to"        : {"x" : 2, "y" : 7},
+            "companies" : ["PROMOTRANS"],
+            "game"      : "IntruderMarchandise"
+        },
+        "20" : {
+            "from"      : {"x" : 3, "y" : 7},
+            "to"        : {"x" : 3, "y" : 7},
+            "companies" : ["ANITA"]
+        },
+        "24" : {
+            "from"      : {"x" : 4, "y" : 6},
+            "to"        : {"x" : 4, "y" : 6},
+            "companies" : ["AFTRAL"]
+        },
+        "25" : {
+            "from"      : {"x" : 5, "y" : 6},
+            "to"        : {"x" : 6, "y" : 6},
+            "companies" : ["AFT", "FNTR", "LSN"],
+            "game"      : "Hangman1"
+        },
+        "19" : {
+            "from"      : {"x" : 5, "y" : 7},
+            "to"        : {"x" : 6, "y" : 7},
+            "companies" : ["GHAAM"],
+            "game"      : "Quizz3"
+        },
+        "26" : {
+            "from"      : {"x" : 8, "y" : 6},
+            "to"        : {"x" : 8, "y" : 6},
+            "companies" : ["DUBOC"]
+        },
+        "18" : {
+            "from"      : {"x" : 8, "y" : 7},
+            "to"        : {"x" : 8, "y" : 7},
+            "companies" : ["MERTZ"]
+        },
+        "27" : {
+            "from"      : {"x" : 9, "y" : 6},
+            "to"        : {"x" : 11, "y" : 6},
+            "companies" : ["SIFA"]
+        },
+        "17" : {
+            "from"      : {"x" : 10, "y" : 7},
+            "to"        : {"x" : 10, "y" : 7},
+            "companies" : ["GRIMALDI"],
+            "game"      : "IntruderTypesNaviresMarchands"
+        },
+        "16" : {
+            "from"      : {"x" : 11, "y" : 7},
+            "to"        : {"x" : 11, "y" : 7},
+            "companies" : ["OOCL"],
+            "game"      : "Hangman1"
+        },
+        "44" : {
+            "from"      : {"x" : 0, "y" : 8},
+            "to"        : {"x" : 0, "y" : 8},
+            "companies" : ["CITY PRO"]
+        },
+        "45" : {
+            "from"      : {"x" : 0, "y" : 9},
+            "to"        : {"x" : 0, "y" : 11},
+            "companies" : ["ALTERNANCIA"]
+        },
+        "46" : {
+            "from"      : {"x" : 0, "y" : 12},
+            "to"        : {"x" : 0, "y" : 12},
+            "companies" : ["SEAMENS CLUB", "SNSM"]
+        },
+        "8" : {
+            "from"      : {"x" : 2, "y" : 9},
+            "to"        : {"x" : 3, "y" : 9},
+            "companies" : ["SOGESTRAN"],
+            "game"      : "Quizz1"
+        },
+        "7" : {
+            "from"      : {"x" : 2, "y" : 10},
+            "to"        : {"x" : 2, "y" : 10},
+            "companies" : ["LA MANU"]
+        },
+        "6" : {
+            "from"      : {"x" : 3, "y" : 10},
+            "to"        : {"x" : 3, "y" : 10},
+            "companies" : ["EXEGO"]
+        },
+        "9" : {
+            "from"      : {"x" : 4, "y" : 9},
+            "to"        : {"x" : 4, "y" : 9},
+            "companies" : ["ENSM"]
+        },
+        "5" : {
+            "from"      : {"x" : 4, "y" : 10},
+            "to"        : {"x" : 4, "y" : 10},
+            "companies" : ["GENDARMERIE"]
+        },
+        "10" : {
+            "from"      : {"x" : 5, "y" : 9},
+            "to"        : {"x" : 5, "y" : 9},
+            "companies" : ["SERVICES PORTUAIRES"],
+            "game"      : "IntruderServicesPortuaires"
+        },
+        "4" : {
+            "from"      : {"x" : 5, "y" : 10},
+            "to"        : {"x" : 5, "y" : 10},
+            "companies" : ["JOB 76"]
+        },
+        "11" : {
+            "from"      : {"x" : 7, "y" : 9},
+            "to"        : {"x" : 7, "y" : 9},
+            "companies" : ["CHEVRON", "RENAULT"]
+        },
+        "3" : {
+            "from"      : {"x" : 7, "y" : 10},
+            "to"        : {"x" : 7, "y" : 10},
+            "companies" : ["SYNERZIP"]
+        },
+        "12" : {
+            "from"      : {"x" : 8, "y" : 9},
+            "to"        : {"x" : 8, "y" : 9},
+            "companies" : ["ESPACE CHAMPION"]
+        },
+        "13" : {
+            "from"      : {"x" : 9, "y" : 9},
+            "to"        : {"x" : 9, "y" : 9},
+            "companies" : ["CINAV", "GICAN"]
+        },
+        "14" : {
+            "from"      : {"x" : 10, "y" : 9},
+            "to"        : {"x" : 11, "y" : 9},
+            "companies" : ["CCI"]
+        },
+        "2" : {
+            "from"      : {"x" : 8, "y" : 10},
+            "to"        : {"x" : 11, "y" : 10},
+            "companies" : ["AGENCE ORIENTATION", "PORT CENTER", "REGION NORMANDIE", "UMEP"],
+            "game"      : "TetrisContainer"
+        },
+        "15" : {
+            "from"      : {"x" : 13, "y" : 9},
+            "to"        : {"x" : 13, "y" : 9},
+            "companies" : ["ANPMT", "IFM"]
+        },
+        "1" : {
+            "from"      : {"x" : 13, "y" : 10},
+            "to"        : {"x" : 13, "y" : 10},
+            "companies" : ["NORMANDIE MARITIME"]
+        },
+        "47" :{
+            "from"      : {"x" : 9, "y" : 13},
+            "to"        : {"x" : 9, "y" : 13},
+            "companies" : ["MARINE NATIONALE"]
+        }
+    }
+}

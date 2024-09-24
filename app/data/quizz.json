@@ -1,0 +1,228 @@
+{
+    "1" : [
+        {
+            "question"    : "Qu'est-ce qu'un bollard ?",
+            "options"     : [
+                "Une borne cylindrique",
+                "Une corde utilisée pour amarrer le navire"
+            ],
+            "answer"      : 0,
+            "explanation" : "Un bollard sert à attacher les amarres d'un navire pour qu'il reste à quai, grâce au travail des lamaneurs."
+        },
+        {
+            "question"    : "Que peut transporter un vraquier ?",
+            "options"     : [
+                "Des conteneurs",
+                "Des voitures",
+                "Des passagers",
+                "Des minerais"
+            ],
+            "answer"      : 3,
+            "explanation" : "Un vraquier est un type de navire utilisé pour le transport de marchandises en vrac (minerais, sel, grains, engrais, etc...)."
+        },
+        {
+            "question"    : "Quel est le rôle d'un maître d'équipage à bord d'un navire ?",
+            "options"     : [
+                "Superviser la cuisine et la restauration à bord",
+                "Diriger les opérations de sauvetage en cas d'urgence",
+                "Assurer la maintenance et la sécurité des équipements du navire",
+                "Organiser les activités de divertissement pour les passagers"
+            ],
+            "answer"      : 2,
+            "explanation" : "Le maître d'équipage est responsable de la maintenance et de la sécurité des équipements à bord du navire, ainsi que de la supervision des membres de l'équipage."
+        },
+        {
+            "question"    : "Quel est le plus grand port commercial de France ?",
+            "options"     : [
+                "Toulon",
+                "HAROPA-PORT",
+                "Marseille-Fos",
+                "Nantes-Saint-Nazaire"
+            ],
+            "answer"      : 1,
+            "explanation" : "HAROPA-PORT, né de la fusion des ports du Havre, Rouen, et Paris, est le 1er port de France et le 4ème port nord-européen en tonnage."
+        },
+        {
+            "question"    : "Combien de mètres de long fait un conteneur de 40 pieds ?",
+            "options"     : [
+                "10,9",
+                "12,2",
+                "14,3",
+                "13,7"
+            ],
+            "answer"      : 1,
+            "explanation" : "Pour convertir des pieds en mètres, il faut diviser le nombre de pieds par 3.281. Ainsi, un conteneur de 40 pieds fait environ 12.2 mètres."
+        }
+    ],
+    "2" : [
+        {
+            "question"    : "Quelle est la fonction d'un officier de pont sur un navire ?",
+            "options"     :  [
+                "Préparer les repas pour l'équipage et les passagers",
+                "Assurer la navigation et la sécurité du navire",
+                "Gérer les activités de divertissement à bord",
+                "Effectuer les réparations mécaniques sur le moteur du navire"
+            ],
+            "answer"      : 1,
+            "explanation" : "L'officier de pont est responsable de la navigation et de la sécurité du navire, notamment de la conduite du navire, du respect des règles de navigation et de la gestion de l'équipage sur le pont."
+        },
+        {
+            "question"    : "Combien font 20 noeuds en km/h ?",
+            "options"     : [
+                "18",
+                "22",
+                "24",
+                "37"
+            ],
+            "answer"      : 3,
+            "explanation" : "Pour convertir des noeuds (kts) en km/h, il faut multiplier le nombre de noeuds par 1.852. Ainsi, 20 noeuds équivalent à environ 37 km/h."
+        },
+        {
+            "question"    : "Ou se situe la poupe d'un navire ?",
+            "options"     : [
+                "À l'avant",
+                "À la gauche",
+                "À l'arrière",
+                "À la droite"
+            ],
+            "answer"      : 2,
+            "explanation" : "Dans le vocabulaire maritime, la poupe d'un bateau se trouve à l'arrière du navire."
+        },
+        {
+            "question"    : "Combien de conteneurs peut contenir le plus gros porte-conteneurs du monde ?",
+            "options"     : [
+                "24 000",
+                "18 000",
+                "9 000",
+                "30 000"
+            ],
+            "answer"      : 0,
+            "explanation" : "Le nouveau MSC Tessa, sortant des chantiers chinois, peut contenir jusqu'à 24,116 conteneurs."
+        },
+        {
+            "question"    : "Quel terme désigne un engin de manutention ?",
+            "options"     : [
+                "Un cavalier",
+                "Un pavillon",
+                "un château",
+                "Une douve"
+            ],
+            "answer"      : 0,
+            "explanation" : "Un chariot cavalier est un engin de manutention roulant, haut d'une dizaine de mètres, pour déplacer des conteneurs sur un parc."
+        }
+    ],
+    "3" : [
+        {
+            "question"    : "Que transporte un navire ro-ro ?",
+            "options"     : [
+                "Des conteneurs",
+                "Des passagers",
+                "Des véhicules",
+                "Des fruits"
+            ],
+            "answer"      : 2,
+            "explanation" : "Ro-Ro signifie roll-on roll-off, les navires ro-ro (ou rouliers) transportent des véhicules roulant pour monter et descendre du navire"
+        },
+        {
+            "question"    : "Quelle est la taille du domaine maritime français ?",
+            "options"     : [
+                "10,9 millions de km²",
+                "3 millions de km²",
+                "6,5 millions de km²",
+                "1 milliard de km²"
+            ],
+            "answer"      : 0,
+            "explanation" : "Le domaine maritime français s'étend sur environ 10,9 millions de kilomètres carrés, ce qui en fait le deuxième domaine maritime mondial."
+        },
+        {
+            "question"    : "Combien de conteneurs peut transporter une barge ?",
+            "options"     : [
+                "50",
+                "100",
+                "150",
+                "250"
+            ],
+            "answer"      : 3,
+            "explanation" : "Les barges fluviales peuvent transporter jusqu'à 250 conteneurs, cela représente environ 200 camions"
+        },
+        {
+            "question"    : "Qu'est-ce que le \"mât\" sur un navire ?",
+            "options"     : [
+                "Une corde pour attacher le navire au quai",
+                "Une partie du gouvernail",
+                "La tour de contrôle du navire",
+                "Une structure verticale qui supporte les voiles ou les antennes"
+            ],
+            "answer"      : 3,
+            "explanation" : "Le \"mât\" sur un navire est une structure verticale qui supporte les voiles ou les antennes."
+        },
+        {
+            "question"    : "Qu'est ce qu'un sillon ?",
+            "options"     : [
+                "Une piste de ski",
+                "Le passage d'un train",
+                "Une tranchée dans la mer",
+                "Une sorte de crabe"
+            ],
+            "answer"      : 1,
+            "explanation" : "Un sillon est une autorisation donnée à un train de circuler à un moment précis, sur une voie dédiée."
+        }
+    ],
+    "4" : [
+        {
+            "question"    : "Combien coûte un ensemble routier neuf ? (tracteur + remorque)",
+            "options"     : [
+                "25 000",
+                "50 000",
+                "125 000",
+                "200 000"
+            ],
+            "answer"      : 2,
+            "explanation" : "Les ensembles routiers peuvent transporter, en France, un conteneur de 40 pieds ou 2 conteneurs de 20 pieds. Ces véhicules deviennent de plus en plus technologiques et hybrides"
+        },
+        {
+            "question"    : "Quelle voie maritime est la plus fréquentée au monde ?",
+            "options"     : [
+                "Le canal de Panama",
+                "Le détroit de Malacca",
+                "La Manche",
+                "Le détroit Danois"
+            ],
+            "answer"      : 2,
+            "explanation" : "La Manche est la voie maritime la plus fréquentée du monde avec une moyenne de 500 navires qui la traversent par jour."
+        },
+        {
+            "question"    : "Que peut contenir un conteneur reefer ?",
+            "options"     : [
+                "Des médicaments",
+                "Des téléviseurs",
+                "Des sneakers",
+                "Du sucre"
+            ],
+            "answer"      : 0,
+            "explanation" : "Ces conteneurs réfrigérés, notamment utilisés pour le transport de médicaments ou de viandes, permettent de maintenir les marchandises à la bonne température (entre -25°C et +25°C)."
+        },
+        {
+            "question"    : "Qu'est ce qu'un chronotachygraphe ?",
+            "options"     : [
+                "Un dessinateur de graphique",
+                "Un intrument de mesure à bord d'un camion",
+                "Un outil de contrôle des géomètres",
+                "Une sonde sous-marine"
+            ],
+            "answer"      : 1,
+            "explanation" : "Né de trois mots grecs : Kronos (le temps), takhus (la vitesse) et graphein (écrire), le chronotachygraphe est un appareil électronique enregistreur de vitesse, de temps de conduite et d'activités, installé dans un véhicule de transport. Il est obligatoire dans tous les ensembles routiers de marchandises."
+        },
+        {
+            "question"    : "Qu'est qu'un commissionnaire en transport ?",
+            "options"     : [
+                "Un document officiel",
+                "Un représentant du client",
+                "Un assureur",
+                "Un policier dans les trains"
+            ],
+            "answer"      : 1,
+            "explanation" : "Un commissionnaire en transport est une personne chargée d'organiser le transport des marchandises pour le compte de son client, chargeurs, de l'usine jusqu'au magasin."
+        }
+    ]
+}
