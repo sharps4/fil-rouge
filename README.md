@@ -4,13 +4,6 @@ Cette documentation a pour but de donner une vision claire du projet et d'aider 
 
 ---
 
-## Table des matières
-1. [Présentation du projet](#présentation-du-projet)
-2. [Nomenclature des commits](#nomenclature-des-commits)
-3. [Outils et bonnes pratiques](#outils-et-bonnes-pratiques)
-
----
-
 ## Présentation du projet
 
 Description succincte du projet et des objectifs à atteindre. Cette section doit permettre à tout nouveau membre de comprendre rapidement l'essence du projet.
