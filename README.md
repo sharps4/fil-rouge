@@ -5,13 +5,8 @@ Cette documentation a pour but de donner une vision claire du projet et d'aider 
 ## Table des matières
 
 - [Présentation du projet](#présentation-du-projet)
-- [Installation](#installation)
-- [Structure du projet](#structure-du-projet)
 - [Nomenclature des commits](#nomenclature-des-commits)
-- [Workflow Git](#workflow-git)
-- [Tests](#tests)
 - [Outils et bonnes pratiques](#outils-et-bonnes-pratiques)
-- [Contributions](#contributions)
 
 ## Présentation du projet
 
