@@ -35,3 +35,7 @@ Cette section présente les outils utilisés dans le projet ainsi que les bonnes
 - **Git** pour la gestion du versionnement.
   
 Respecter des standards de code, faire des revues de code régulières, et écrire des tests unitaires sont fortement encouragés pour garantir la qualité et la pérennité du projet.
+
+## Spécifications fonctionnelles
+
+Lien canva : https://www.canva.com/design/DAGRrcOvepQ/m3Hh_wewEmuNdAzjnxw4DA/edit?utm_content=DAGRrcOvepQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
