@@ -39,3 +39,7 @@ Respecter des standards de code, faire des revues de code régulières, et écri
 ## Spécifications fonctionnelles
 
 Lien canva : https://www.canva.com/design/DAGRrcOvepQ/m3Hh_wewEmuNdAzjnxw4DA/edit?utm_content=DAGRrcOvepQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
+## MCD BDD
+
+Lien canva : https://www.canva.com/design/DAGRw6DHcuU/8mheQ45R9mVj2inAVQ2rrw/edit?utm_content=DAGRw6DHcuU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
