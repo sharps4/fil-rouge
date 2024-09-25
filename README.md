@@ -8,6 +8,9 @@ Cette documentation a pour but de donner une vision claire du projet et d'aider 
 
 Description succincte du projet et des objectifs à atteindre. Cette section doit permettre à tout nouveau membre de comprendre rapidement l'essence du projet.
 
+
+test
+
 ---
 
 ## Nomenclature des commits
