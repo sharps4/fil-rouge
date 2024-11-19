@@ -5,7 +5,7 @@
 API pour mettre à jour la base de données sur le serveur.
 
 > [!IMPORTANT]
-> C'est en WIP donc tout n'est pas complet, surtout tant qu'on a pas le serveur et la db. Il doit aussi avoir un table Updates dans la db.
+> C'est en WIP donc tout n'est pas complet pour le moment.
 
 ## Utilisation/Test
 
@@ -19,16 +19,6 @@ curl -X POST http://localhost/updates.php -H "Content-Type: application/json" -d
 curl -X PUT http://localhost/updates.php?id=1 -H "Content-Type: application/json" -d '{"title": "Mise à jour modifiée", "description": "Description modifiée"}'
 
 curl -X DELETE http://localhost/updates.php?id=1
-```
-
-## Table Updates 
-
-```
-CREATE TABLE updates (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT NOT NULL
-);
 ```
 
 ## Licence
