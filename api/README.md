@@ -5,7 +5,7 @@
 API pour mettre à jour la base de données sur le serveur.
 
 > [!IMPORTANT]
-> C'est en WIP donc tout n'est pas complet pour le moment. Les url dans utilisation sont des placeholder (à nmodifier avant de test) !
+> C'est en WIP donc tout n'est pas complet pour le moment. Les url dans utilisation sont des placeholder (à modifier avant de test) !
 
 ## Utilisation/Test
 
