@@ -57,6 +57,21 @@ switch ($method) {
         }
         break;
 
+    case 'SYNC':
+        $tables = json_decode(file_get_contents('php://input'), true);
+        $data = [];
+        foreach ($tables as $table) {
+            $sql = "SELECT * FROM $table";
+            $result = $conn->query($sql);
+            $tableData = [];
+            while($row = $result->fetch_assoc()) {
+                $tableData[] = $row;
+            }
+            $data[$table] = $tableData;
+        }
+        echo json_encode($data);
+        break;
+
     default:
         echo json_encode(['status' => 'method not allowed']);
         break;
