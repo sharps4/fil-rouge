@@ -59,7 +59,7 @@ Cette table contient les informations relatives aux questions de quiz.
 - `answer` (INTEGER) : L'indice de la proposition correcte (0 à 3).
 
 ### 2. **Intruder**
-Cette table contient des mots-clés associés à des intrus dans l'application.
+Cette table contient des mots-clés associés au jeu de l'intrus dans l'application.
 
 - `id` (INTEGER, PRIMARY KEY) : Identifiant unique de l'intrus.
 - `keyword` (TEXT) : Le mot-clé correspondant à l'intrus.
@@ -98,7 +98,7 @@ Table qui contient des informations détaillées sur une entreprise, comme son n
 - `category` (TEXT) : Catégorie de l'entreprise.
 
 ### 7. **Stand**
-Cette table contient des informations sur les stands dans un espace donné (probablement pour un salon ou une exposition).
+Cette table contient des informations sur les stands dans un espace donné.
 
 - `name` (TEXT) : Nom du stand.
 - `map` (TEXT) : Carte ou localisation du stand.
