@@ -13,21 +13,24 @@ if ($conn->connect_error) {
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
+$table = $_GET['table'];
 
 switch ($method) {
     case 'GET':
-        $sql = "SELECT * FROM updates";
+        $sql = "SELECT * FROM $table";
         $result = $conn->query($sql);
-        $updates = [];
+        $data = [];
         while($row = $result->fetch_assoc()) {
-            $updates[] = $row;
+            $data[] = $row;
         }
-        echo json_encode($updates);
+        echo json_encode($data);
         break;
 
     case 'POST':
         $input = json_decode(file_get_contents('php://input'), true);
-        $sql = "INSERT INTO updates (title, description) VALUES ('" . $input['title'] . "', '" . $input['description'] . "')";
+        $columns = implode(", ", array_keys($input));
+        $values = implode("', '", array_values($input));
+        $sql = "INSERT INTO $table ($columns) VALUES ('$values')";
         if ($conn->query($sql) === TRUE) {
             $input['id'] = $conn->insert_id;
             echo json_encode($input);
@@ -39,7 +42,12 @@ switch ($method) {
     case 'PUT':
         $id = $_GET['id'];
         $input = json_decode(file_get_contents('php://input'), true);
-        $sql = "UPDATE updates SET title='" . $input['title'] . "', description='" . $input['description'] . "' WHERE id=" . $id;
+        $updates = [];
+        foreach ($input as $key => $value) {
+            $updates[] = "$key='$value'";
+        }
+        $updates_str = implode(", ", $updates);
+        $sql = "UPDATE $table SET $updates_str WHERE id=$id";
         if ($conn->query($sql) === TRUE) {
             echo json_encode($input);
         } else {
@@ -49,27 +57,12 @@ switch ($method) {
 
     case 'DELETE':
         $id = $_GET['id'];
-        $sql = "DELETE FROM updates WHERE id=" . $id;
+        $sql = "DELETE FROM $table WHERE id=$id";
         if ($conn->query($sql) === TRUE) {
             echo json_encode(['status' => 'success']);
         } else {
             echo json_encode(['error' => $conn->error]);
         }
-        break;
-
-    case 'SYNC':
-        $tables = json_decode(file_get_contents('php://input'), true);
-        $data = [];
-        foreach ($tables as $table) {
-            $sql = "SELECT * FROM $table";
-            $result = $conn->query($sql);
-            $tableData = [];
-            while($row = $result->fetch_assoc()) {
-                $tableData[] = $row;
-            }
-            $data[$table] = $tableData;
-        }
-        echo json_encode($data);
         break;
 
     default:
