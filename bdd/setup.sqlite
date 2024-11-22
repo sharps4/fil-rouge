@@ -1,0 +1,83 @@
+CREATE TABLE Setup(
+    version   TEXT,
+    updateURL TEXT
+);
+
+CREATE TABLE Color(
+    name TEXT PRIMARY KEY,
+    code TEXT
+);
+
+CREATE TABLE Map(
+    name TEXT PRIMARY KEY
+);
+
+CREATE TABLE Stand(
+    name    TEXT    PRIMARY KEY,
+    map     TEXT    FOREIGN KEY REFERENCES Map(name),
+    x       INTEGER,
+    y       INTEGER,
+    width   INTEGER,
+    height  INTEGER,
+    visited INTEGER
+);
+
+CREATE TABLE Company(
+    name           TEXT PRIMARY KEY,
+    stand          TEXT FOREIGN KEY REFERENCES Stand(name),
+    description    TEXT,
+    site           TEXT,
+    logo           BLOB,
+    activitySector TEXT
+);
+
+CREATE TABLE Game(
+    id     INTEGER PRIMARY KEY,
+    stand  TEXT    FOREIGN KEY REFERENCES Stand(name),
+    type   TEXT,
+    gameID INTEGER,
+    score  INTEGER,
+    played INTEGER
+);
+
+CREATE TABLE Tetris(
+    id INTEGER PRIMARY KEY
+);
+
+CREATE TABLE IntruderImage(
+    id      INTEGER PRIMARY KEY,
+    keyword TEXT,
+    image   BLOB
+);
+
+CREATE TABLE Intruder(
+    id INTEGER PRIMARY KEY
+);
+
+CREATE TABLE QuizzQuestion(
+    id           INTEGER PRIMARY KEY,
+    description  TEXT,
+    proposition0 TEXT,
+    proposition1 TEXT,
+    proposition2 TEXT,
+    proposition3 TEXT,
+    answer       INTEGER
+);
+
+CREATE TABLE Quizz(
+    id        INTEGER PRIMARY KEY,
+    question0 INTEGER FOREIGN KEY REFERENCES QuizzQuestion(id),
+    question1 INTEGER FOREIGN KEY REFERENCES QuizzQuestion(id),
+    question2 INTEGER FOREIGN KEY REFERENCES QuizzQuestion(id),
+    question3 INTEGER FOREIGN KEY REFERENCES QuizzQuestion(id)
+);
+
+CREATE TABLE HangedManWord(
+    word        TEXT PRIMARY KEY,
+    set         TEXT,
+    description TEXT
+);
+
+CREATE TABLE HangedMan(
+    id INTEGER PRIMARY KEY
+);
