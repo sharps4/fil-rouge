@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "";
+$dbname = "lh_test_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -17,13 +17,24 @@ $table = $_GET['table'];
 
 switch ($method) {
     case 'GET':
-        $sql = "SELECT * FROM $table";
-        $result = $conn->query($sql);
-        $data = [];
-        while($row = $result->fetch_assoc()) {
-            $data[] = $row;
+        if (isset($_GET['version'])) {
+            $version = $_GET['version'];
+            $sql = "SELECT data FROM Version WHERE version > '$version' ORDER BY version ASC";
+            $result = $conn->query($sql);
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = json_decode($row['data'], true);
+            }
+            echo json_encode($data);
+        } else {
+            $sql = "SELECT * FROM $table";
+            $result = $conn->query($sql);
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
+            echo json_encode($data);
         }
-        echo json_encode($data);
         break;
 
     case 'POST':
