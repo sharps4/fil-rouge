@@ -5,17 +5,22 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 switch ($method) {
     case 'GET':
-        if (isset($_GET['version'])) {
-            $version = $_GET['version'];
-            $versionFile = "api/version_$version.json";
-            if (file_exists($versionFile)) {
-                $data = file_get_contents($versionFile);
+        $files = glob('api/version_*.json');
+        if ($files) {
+            $versions = array_map(function($file) {
+                return (int)str_replace(['api/version_', '.json'], '', $file);
+            }, $files);
+            rsort($versions);
+            $latestVersion = $versions[0];
+            $latestVersionFile = "api/version_$latestVersion.json";
+            if (file_exists($latestVersionFile)) {
+                $data = file_get_contents($latestVersionFile);
                 echo $data;
             } else {
                 echo json_encode([]);
             }
         } else {
-            echo json_encode(['error' => 'Version not specified']);
+            echo json_encode(['error' => 'No versions available']);
         }
         break;
 
