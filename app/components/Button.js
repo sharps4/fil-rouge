@@ -1,5 +1,4 @@
 import { TouchableOpacity, Text } from 'react-native';
-import FeatherIcon from 'react-native-vector-icons/Feather';
 
 export default function Button({onPress, children}) {
     return (
