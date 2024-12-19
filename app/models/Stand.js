@@ -1,4 +1,4 @@
-import Database from "../Database";
+import Database from '../Database';
 
 export default class Stand {
     constructor(
@@ -10,12 +10,12 @@ export default class Stand {
         height  = 0,
         visited = false
     ) {
-        this.name = name;
-        this.map = map;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+        this.name    = name;
+        this.map     = map;
+        this.x       = x;
+        this.y       = y;
+        this.width   = width;
+        this.height  = height;
         this.visited = visited;
     }
 
@@ -29,34 +29,9 @@ export default class Stand {
                 y:       'INTEGER',
                 width:   'INTEGER',
                 height:  'INTEGER',
-                visited: 'INTEGER'
+                visited: 'INTEGER',
             }
         );
-        await Database.delete('Stand');
-        await Database.insert('Stand', {
-            name:   'Stand 1',
-            map:    'Map 0',
-            x:      0,
-            y:      0,
-            width:  2,
-            height: 1
-        });
-        await Database.insert('Stand', {
-            name:   'Stand 2',
-            map:    'Map 0',
-            x:      2,
-            y:      2,
-            width:  1,
-            height: 1
-        });
-        await Database.insert('Stand', {
-            name:   'Stand 10',
-            map:    'Map 1',
-            x:      0,
-            y:      0,
-            width:  2,
-            height: 2
-        });
     }
 
     static fromData(data) {
@@ -67,7 +42,7 @@ export default class Stand {
             data.y,
             data.width,
             data.height,
-            data.visited
+            data.visited,
         );
     }
 
@@ -76,6 +51,26 @@ export default class Stand {
     }
 
     static async findByMap(name) {
-        return (await Database.select('Stand', {map: name})).map(data => Stand.fromData(data));
+        return (await Database.select('Stand', { map: name })).map(data => Stand.fromData(data));
+    }
+
+    static async findByName(name) {
+        return (await Database.select('Stand', { name: name }))[0];
+    }
+
+    static async deleteAll() {
+        await Database.delete('Stand');
+    }
+
+    async insert() {
+        await Database.insert('Stand', {
+            name:    this.name,
+            map:     this.map,
+            x:       this.x,
+            y:       this.y,
+            width:   this.width,
+            height:  this.height,
+            visited: this.visited,
+        });
     }
 }

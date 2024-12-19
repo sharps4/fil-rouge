@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { View, Text } from "react-native";
-import DefaultPage from './DefaultPage';
-import MapStand from '../components/MapStand';
+import { View } from 'react-native';
 import Map from '../models/Map';
 import Stand from '../models/Stand';
-import Button from '../components/Button';
+import DefaultPage from './DefaultPage';
+import MapStand from '../components/MapStand';
+import Paragraph from '../components/Paragraph';
+import Pagination from '../components/Pagination';
 
 export default function MapPage() {
     const [map, setMap] = useState(-1);
@@ -15,6 +16,9 @@ export default function MapPage() {
     const [cellSize, setCellSize] = useState(0);
     const [dx, setDx] = useState(0);
     const [dy, setDy] = useState(0);
+
+    const handlePrevious = () => setMap(map > 0 ? map-1 : maps.length-1);
+    const handleNext = () => setMap(map < maps.length-1 ? map+1 : 0);
 
     useEffect(() => {
         Map.findAll().then(maps => {
@@ -47,20 +51,18 @@ export default function MapPage() {
     return (
         <DefaultPage>
             <View style={{
-                flex: 1,
-                alignItems: 'center'
+                flex:       1,
+                alignItems: 'center',
             }}>
-                <Text style={{
-                    width: '100%',
-                    fontSize: 20,
-                    textAlign: 'center',
-                    color: '#fff',
-                    backgroundColor: '#000'
-                }}>{map === -1 ? 'Aucune carte disponible' : maps[map].name}</Text>
+                <Paragraph
+                    size='lg'
+                    center={true}
+                    marge={20}
+                >{map === -1 ? 'Aucune carte disponible' : maps[map].name}</Paragraph>
                 <View
                     style={{
-                        flex: 1,
-                        width: '100%'
+                        flex:  1,
+                        width: '100%',
                     }}
                     onLayout={(event) => {
                         const {width, height} = event.nativeEvent.layout;
@@ -72,24 +74,12 @@ export default function MapPage() {
                     ? null
                     : stands.map((stand, key) => <MapStand key={key} stand={stand} cellSize={cellSize} dx={dx} dy={dy}/>)
                 }</View>
-                {map === -1 ? null : (
-                    <View style={{
-                        width: '100%',
-                        flexDirection: 'row',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        <Button onPress={() => {
-                            if (map > 0) setMap(map-1);
-                            else setMap(maps.length-1);
-                        }}>Précédent</Button>
-                        <Text>{map+1}/{maps.length}</Text>
-                        <Button onPress={() => {
-                            if (map < maps.length-1) setMap(map+1);
-                            else setMap(0);
-                        }}>Suivant</Button>
-                    </View>
-                )}
+                {map === -1 ? null : <Pagination
+                    index      = { map }
+                    total      = { maps.length }
+                    onPrevious = { handlePrevious }
+                    onNext     = { handleNext }
+                />}
             </View>
         </DefaultPage>
     );

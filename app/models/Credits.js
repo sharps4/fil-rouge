@@ -1,4 +1,4 @@
-import Database from "../Database";
+import Database from '../Database';
 
 export default class Credits {
     constructor(
@@ -14,7 +14,7 @@ export default class Credits {
             'Credits',
             {
                 name: 'TEXT',
-                rule: 'TEXT'
+                rule: 'TEXT',
             }
         );
     }
@@ -22,11 +22,22 @@ export default class Credits {
     static fromData(data) {
         return new Map(
             data.name,
-            data.rule
+            data.rule,
         );
     }
 
     static async findAll() {
         return await Database.select('Credits');
+    }
+
+    static async deleteAll() {
+        await Database.delete('Credits');
+    }
+
+    async insert() {
+        await Database.insert('Credits', {
+            name: this.name,
+            rule: this.rule,
+        });
     }
 }

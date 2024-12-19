@@ -26,9 +26,12 @@ export default class Database {
             return items;
         }
         catch (error) {
-            //console.log(error.message);
             return [];
         }
+    }
+
+    static async dropTable(name) {
+        return await Database.execute(`DROP TABLE IF EXISTS ${name}`);
     }
 
     static async createTable(name, columns) {

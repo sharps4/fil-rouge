@@ -1,20 +1,21 @@
 import { View } from 'react-native';
-// import Nav from '../components/Nav';
+import Color from '../models/Color';
+import Nav from '../components/Nav';
 
-export default function DefaultPage({children}) {
+export default function DefaultPage({ padding = 10, children }) {
     return (
         <View style={{
-            flex: 1,
-            alignItems: 'center',
-            backgroundColor: '#fff',
+            flex:            1,
+            alignItems:      'center',
+            backgroundColor: Color.getCode('primary')
         }}>
             <View style={{
-                flexGrow: 1,
-                width: '100%',
-                flex: 1,
-                backgroundColor: '#033165',
+                flex:            1,
+                flexGrow:        1,
+                width:           '100%',
+                padding:         padding,
             }}>{children}</View>
-            {/* <Nav/> */}
+            <Nav/>
         </View>
     );
 }

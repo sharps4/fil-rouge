@@ -1,4 +1,4 @@
-import Database from "../Database";
+import Database from '../Database';
 
 export default class Company {
     constructor(
@@ -9,11 +9,11 @@ export default class Company {
         logo           = '',
         activitySector = ''
     ) {
-        this.name = name;
-        this.stand = stand;
-        this.description = description;
-        this.site = site;
-        this.logo = logo;
+        this.name           = name;
+        this.stand          = stand;
+        this.description    = description;
+        this.site           = site;
+        this.logo           = logo;
         this.activitySector = activitySector;
     }
 
@@ -26,7 +26,7 @@ export default class Company {
                 description:    'TEXT',
                 site:           'TEXT',
                 logo:           'TEXT',
-                activitySector: 'TEXT'
+                activitySector: 'TEXT',
             }
         );
     }
@@ -47,6 +47,25 @@ export default class Company {
     }
 
     static async findByStand(name) {
-        return (await Database.select('Company', {stand: name})).map(data => Company.fromData(data));
+        return (await Database.select('Company', { stand: name })).map(data => Company.fromData(data));
+    }
+
+    static async findByName(name) {
+        return (await Database.select('Company', { name: name }))[0];
+    }
+
+    static async deleteAll() {
+        await Database.delete('Company');
+    }
+
+    async insert() {
+        await Database.insert('Company', {
+            name:           this.name,
+            stand:          this.stand,
+            description:    this.description,
+            site:           this.site,
+            logo:           this.logo,
+            activitySector: this.activitySector,
+        });
     }
 }
