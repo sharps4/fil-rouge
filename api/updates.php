@@ -6,16 +6,16 @@
         case 'GET':
             if (array_key_exists('version', $_GET))
             {
-                $files = scandir('./requests', SCANDIR_SORT_DESCENDING);
+                $files = scandir('./data', SCANDIR_SORT_DESCENDING);
                 if (count($files) > 0)
                 {
-                    $version = substr($files[0], 1, -5);
+                    $version = substr($files[0], 0, -5);
                     if ($version !== $_GET['version'])
                     {
                         echo json_encode([
                             'status'   => 'new-version',
                             'version'  => $version,
-                            'requests' => json_decode(file_get_contents('./requests/'.$files[0]))
+                            'entities' => json_decode(file_get_contents('./data/'.$files[0]))
                         ]);
                         break;
                     }

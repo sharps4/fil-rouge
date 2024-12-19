@@ -1,10 +1,11 @@
+import { useNavigation } from '@react-navigation/native';
 import { View, TouchableOpacity, Text } from 'react-native';
 
-export default function MapStand({key, stand, cellSize}) {
-    console.log(stand);
+export default function MapStand({ stand, cellSize }) {
+    const navigation = useNavigation();
+
     return (
         <TouchableOpacity
-            key={key}
             style={{
                 position: 'absolute',
                 left: stand.x*cellSize,
@@ -12,7 +13,7 @@ export default function MapStand({key, stand, cellSize}) {
                 width: stand.width*cellSize,
                 height: stand.height*cellSize
             }}
-            // onPress={() => navigation.navigate('Stand', {stand: stand, from: 'Map'})}
+            onPress={() => navigation.navigate('Stand', {stand: stand.name, from: 'Map'})}
         >
             <View style={{
                 flex: 1,
