@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Paragraph from '../components/Paragraph';
-import Logo from '../components/Logo';
+import LHPDLogo from '../components/LHPDLogo';
 import Database from '../Database';
 import Color from '../models/Color';
 import Company from '../models/Company';
@@ -26,7 +26,7 @@ export default function LoadingPage() {
     useEffect(() => {
         const process = async () => {
             await Database.init();
-            const models = { Color, Company, Credits, Map, Setup, Stand };
+            const models = { Color, Company, Credits, Map, Stand };
             const entities = {};
             for (const model in models) await models[model].init();
             fetch(`http://10.0.2.2/api?version=${Setup.version}`)
@@ -34,19 +34,17 @@ export default function LoadingPage() {
                 .then(json => {
                     if (json.status === 'new-version') {
                         setMessage('Mise à jour de la base de données');
-                        for (const data of json.entities) {
-                            if (entities[data.model] === undefined) entities[data.model] = [];
-                            entities[data.model].push(models[data.model].fromData(data));
+                        for (const entity of json.data.entities) {
+                            if (entities[entity.model] === undefined) entities[entity.model] = [];
+                            entities[entity.model].push(models[entity.model].fromData(entity));
                         }
                         const updateDB = async () => {
-                            Setup.version = json.version;
-                            for (const model in entities) {
-                                if (model !== 'Setup') {
-                                    await models[model].deleteAll();
-                                    for (const entity of entities[model]) await entity.insert();
-                                }
-                            }
+                            Setup.fromData(json.data);
                             await Setup.update();
+                            for (const model in entities) {
+                                await models[model].deleteAll();
+                                for (const entity of entities[model]) await entity.insert();
+                            }
                         };
                         updateDB()
                             .then(() => navigation.navigate('Home'))
@@ -70,7 +68,7 @@ export default function LoadingPage() {
            gap:             40,
            backgroundColor: Color.getCode('primary'),
        }}>
-           <Logo color={ Color.getCode('light') }/>
+           <LHPDLogo color={ Color.getCode('light') }/>
            <Paragraph>{' '.repeat(loading)}{message}{'.'.repeat(loading)}</Paragraph>
        </View>
     );

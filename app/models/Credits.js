@@ -20,7 +20,7 @@ export default class Credits {
     }
 
     static fromData(data) {
-        return new Map(
+        return new Credits(
             data.name,
             data.rule,
         );

@@ -2,10 +2,21 @@ import { View } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import Button from './Button';
 import Color from '../models/Color';
+import Setup from '../models/Setup';
 
 export default function Nav() {
     const route = useRoute();
     const navigation = useNavigation();
+
+    const buttons = Setup.getWaitingTime() === 'started' ? [
+        ['Home', 'home'],
+        ['Search', 'search'],
+        ['Map', 'map'],
+        ['Camera', 'camera'],
+    ] : [
+        ['Home', 'home'],
+        ['Search', 'search'],
+    ];
 
     return (
         <View style={{
@@ -20,19 +31,14 @@ export default function Nav() {
             borderTopRightRadius: 10,
             backgroundColor:      Color.getCode('light'),
         }}>
-            {[
-                ['Home', 'home'],
-                ['Map', 'map'],
-                ['Path', 'compass'],
-                ['Camera', 'camera'],
-            ].map((data, key) => <Button
+            { buttons.map((data, key) => <Button
                 key     = { key }
                 size    = 'lg'
                 type    = { data[0] === route.name ? 'disabled' : 'dark' }
                 hasBg   = { false }
                 icon    = { data[1] }
                 onPress = { () => navigation.navigate(data[0]) }
-            ></Button>)}
+            />) }
         </View>
     );
 }

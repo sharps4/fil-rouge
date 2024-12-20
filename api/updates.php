@@ -13,9 +13,8 @@
                     if ($version !== $_GET['version'])
                     {
                         echo json_encode([
-                            'status'   => 'new-version',
-                            'version'  => $version,
-                            'entities' => json_decode(file_get_contents('./data/'.$files[0]))
+                            'status' => 'new-version',
+                            'data'   => json_decode(file_get_contents('./data/'.$files[0]))
                         ]);
                         break;
                     }
