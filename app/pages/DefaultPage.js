@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import Color from '../models/Color';
 import Nav from '../components/Nav';
 
-export default function DefaultPage({ padding = 10, children }) {
+export default function DefaultPage({ padding = 20, children }) {
     return (
         <View style={{
             flex:            1,

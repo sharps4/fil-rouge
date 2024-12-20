@@ -11,7 +11,7 @@ export default function Paragraph({
 }) {
     return <Text style={{
         fontFamily:   'Roboto',
-        fontSize:     size === 'sm' ? 14 : size === 'md' ? 16 : 24,
+        fontSize:     size === 'sm' ? 14 : size === 'md' ? 16 : size === 'lg' ? 24 : 36,
         color:        Color.getCode(type),
         fontWeight:   bold ? 'bold' : 'normal',
         textAlign:    center ? 'center' : 'left',

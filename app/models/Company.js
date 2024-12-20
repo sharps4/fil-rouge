@@ -54,6 +54,21 @@ export default class Company {
         return (await Database.select('Company', { name: name }))[0];
     }
 
+    static async search(name = '', sector = 'Tous') {
+        return await Database.execute(`
+            SELECT *
+            FROM Company
+            ${name !== '' || sector !== 'Tous' ? 'WHERE ' : ''}
+            ${name !== '' ? `name LIKE '%${name}%'` : ''}
+            ${name !== '' && sector !== 'Tous' ? ' AND ' : ''}
+            ${sector !== 'Tous' ? `activitySector = '${sector}'` : ''}
+        `);
+    }
+
+    static async findAllSectors() {
+        return (await Database.execute('SELECT DISTINCT activitySector FROM Company'));
+    }
+
     static async deleteAll() {
         await Database.delete('Company');
     }
