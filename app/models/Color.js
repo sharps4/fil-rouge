@@ -8,6 +8,7 @@ export default class Color {
         'dark':      '#000',
         'disabled':  '#7f7f7f',
         'valid':     '#0f0',
+        'warning':   '#ff7f00',
         'error':     '#f00',
     };
 
@@ -38,7 +39,7 @@ export default class Color {
     }
 
     static async findAll() {
-        return await Database.select('Color');
+        return (await Database.select('Color')).map(data => Color.fromData(data));
     }
 
     static async deleteAll() {

@@ -32,10 +32,6 @@ export default class Setup {
         Setup.site        = data.site;
     }
 
-    static async findAll() {
-        return await Database.select('Map');
-    }
-
     static async update() {
         await Database.execute('UPDATE Setup SET version = ?, from = ?, to = ?, description = ?, site = ?', [
             Setup.version,

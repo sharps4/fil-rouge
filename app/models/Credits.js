@@ -27,7 +27,7 @@ export default class Credits {
     }
 
     static async findAll() {
-        return await Database.select('Credits');
+        return (await Database.select('Credits')).map(data => Credits.fromData(data));
     }
 
     static async deleteAll() {

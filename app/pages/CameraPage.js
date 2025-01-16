@@ -19,7 +19,10 @@ export default function CameraPage() {
         codeTypes: ['qr'],
         onCodeScanned: (codes) => {
             const process = async () => {
-                if (await Stand.findByName(codes[0].value)) {
+                const stand = await Stand.findByName(codes[0].value);
+                if (stand) {
+                    stand.visited = true;
+                    stand.update();
                     navigation.navigate('Stand', { stand: codes[0].value, from: 'Camera' });
                 }
             };
