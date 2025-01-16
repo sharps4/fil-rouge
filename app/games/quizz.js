@@ -12,7 +12,6 @@ export default function Quizz({navigation, gameId, handleValidate}) {
     const [choosen, setChoosen] = useState(0);
     const [score, setScore] = useState(0);
 
-    // Get the quiz questions for this game
     const gameQuiz = QUIZ_DATA.gameQuizzes[gameId];
     const quiz = QUIZ_DATA.quizzes[gameQuiz.quizId];
     const questions = [
