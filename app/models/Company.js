@@ -43,7 +43,7 @@ export default class Company {
     }
 
     static async findAll() {
-        return await Database.select('Company');
+        return (await Database.select('Company')).map(data => Company.fromData(data));
     }
 
     static async findByStand(name) {
@@ -51,7 +51,8 @@ export default class Company {
     }
 
     static async findByName(name) {
-        return (await Database.select('Company', { name: name }))[0];
+        const companies = await Database.select('Company', { name: name });
+        return companies.length === 0 ? null : Company.fromData(companies[0]);
     }
 
     static async search(name = '', sector = 'Tous') {

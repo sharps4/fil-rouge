@@ -23,7 +23,7 @@ export default class Map {
     }
 
     static async findAll() {
-        return await Database.select('Map');
+        return (await Database.select('Map')).map(data => Map.fromData(data));
     }
 
     static async deleteAll() {

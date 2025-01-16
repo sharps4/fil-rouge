@@ -1,5 +1,7 @@
 import { TouchableOpacity } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import Paragraph from './Paragraph';
 import Color from '../models/Color';
 
@@ -8,6 +10,7 @@ export default function Button({
     type    = 'primary',
     hasBg   = true,
     icon    = null,
+    iconSet = 'Feather',
     center  = false,
     onPress = null,
     children,
@@ -17,6 +20,16 @@ export default function Button({
         ? 'dark'
         : 'light'
     ) : type;
+
+    const Icon = (
+        iconSet === 'Feather'
+        ? FeatherIcon
+        : iconSet === 'FontAwesome'
+        ? FontAwesomeIcon
+        : iconSet === 'AntDesign'
+        ? AntDesignIcon
+        : null
+    );
 
     return (
         <TouchableOpacity style={{
@@ -31,7 +44,7 @@ export default function Button({
             borderRadius:      5,
             backgroundColor:   hasBg ? Color.getCode(type) : null,
         }} onPress={onPress}>
-            { icon ? <FeatherIcon
+            { icon ? <Icon
                 name  = { icon }
                 size  = { size === 'sm' ? 20 : size === 'md' ? 24 : 28 }
                 color = { Color.getCode(fg) }

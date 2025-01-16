@@ -47,7 +47,7 @@ export default class Stand {
     }
 
     static async findAll() {
-        return await Database.select('Stand');
+        return (await Database.select('Stand')).map(data => Stand.fromData(data));
     }
 
     static async findByMap(name) {
@@ -55,7 +55,8 @@ export default class Stand {
     }
 
     static async findByName(name) {
-        return (await Database.select('Stand', { name: name }))[0];
+        const stands = await Database.select('Stand', { name: name });
+        return stands.length === 0 ? null : Stand.fromData(stands[0]);
     }
 
     static async deleteAll() {
@@ -72,5 +73,10 @@ export default class Stand {
             height:  this.height,
             visited: this.visited,
         });
+    }
+
+    async update() {
+        await Database.delete('Stand', { name: this.name });
+        await this.insert();
     }
 }

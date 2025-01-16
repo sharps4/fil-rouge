@@ -56,7 +56,7 @@ export default function SearchPage() {
                 selectedValue = { sector }
                 onValueChange = { (value) => setSector(value) }
             >
-                { sectors.map(sector => <Picker.Item label={ sector } value={ sector } />) }
+                { sectors.map((sector, key) => <Picker.Item key={ key } label={ sector } value={ sector } />) }
             </Picker>
             <ScrollView>
                 { companies.map((company, key) => (

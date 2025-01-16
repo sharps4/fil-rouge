@@ -7,7 +7,10 @@ import Database from '../Database';
 import Color from '../models/Color';
 import Company from '../models/Company';
 import Credits from '../models/Credits';
+import Game from '../models/Game';
 import Map from '../models/Map';
+import Quizz from '../models/Quizz';
+import QuizzQuestion from '../models/QuizzQuestion';
 import Setup from '../models/Setup';
 import Stand from '../models/Stand';
 
@@ -26,10 +29,11 @@ export default function LoadingPage() {
     useEffect(() => {
         const process = async () => {
             await Database.init();
-            const models = { Color, Company, Credits, Map, Stand };
+            const models = { Color, Company, Credits, Game, Map, Quizz, QuizzQuestion, Stand };
             const entities = {};
             for (const model in models) await models[model].init();
-            fetch(`http://10.0.2.2/api?version=${Setup.version}`)
+            // fetch(`http://10.0.2.2/api?version=${Setup.version}`)
+            fetch(`http://10.0.2.2/api?version=0`)
                 .then(response => response.json())
                 .then(json => {
                     if (json.status === 'new-version') {
@@ -45,6 +49,9 @@ export default function LoadingPage() {
                                 await models[model].deleteAll();
                                 for (const entity of entities[model]) await entity.insert();
                             }
+                            const stand = await Stand.findByName('Stand 1');
+                            stand.visited = true;
+                            await stand.update();
                         };
                         updateDB()
                             .then(() => navigation.navigate('Home'))

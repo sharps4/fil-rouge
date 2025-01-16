@@ -1,12 +1,17 @@
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 import DefaultPage from './DefaultPage';
 import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
 import Stand from '../models/Stand';
 import Company from '../models/Company';
+import Game from '../models/Game';
 import CompanyCarousel from '../components/CompanyCarousel';
+import QuizzComponent from '../games/QuizzComponent';
+import IntruderComponent from '../games/IntruderComponent';
+import HangedManComponent from '../games/HangedManComponent';
+import TetrisComponent from '../games/TetrisComponent';
 
 export default function StandPage() {
     const route = useRoute();
@@ -14,27 +19,100 @@ export default function StandPage() {
 
     const [stand, setStand] = useState(null);
     const [companies, setCompanies] = useState([]);
+    const [game, setGame] = useState(null);
+
+    const loadGame = async name => setGame(await Game.findByStand(name));
+
+    const handleEndGame = async score => {
+        game.played = true;
+        if (score > game.score) game.score = score;
+        await game.update();
+        await loadGame(stand.name);
+    }
 
     useEffect(() => {
         const process = async () => {
-            setStand(await Stand.findByName(route.params.stand));
-            setCompanies(await Company.findByStand(route.params.stand));
+            const s = await Stand.findByName(route.params.stand)
+            setStand(s);
+            if (s) {
+                setCompanies(await Company.findByStand(s.name));
+                loadGame(s.name);
+            }
         };
         process();
     }, [route]);
 
+    const status = (
+        stand === null || !stand.visited
+        ? {
+            color:   'error',
+            iconSet: 'AntDesign',
+            icon:    'qrcode',
+            text:    'Scanner le QR code',
+        } : game && !game.played
+        ? {
+            color:   'warning',
+            iconSet: 'FontAwesome',
+            icon:    'gamepad',
+            text:    'Jouer au mini-jeu',
+        } : {
+            color:   'valid',
+            iconSet: 'Feather',
+            icon:    'check',
+            text:    'Stand validé',
+        }
+    );
+
     return (
         <DefaultPage>
-            <Button
-                type    = 'light'
-                onPress = { () => navigation.navigate(route.params.from) }
-            >Retour</Button>
-            <Paragraph
-                size   = 'lg'
-                bold   = { true }
-                center = { true }
-            >{route.stand}</Paragraph>
-            <CompanyCarousel companies={companies}/>
+            <View style={{
+                flexDirection:  'row',
+                justifyContent: 'space-between',
+                marginBottom:   40,
+            }}>
+                <Button
+                    type    = 'light'
+                    onPress = { () => navigation.navigate(route.params.from) }
+                >Retour</Button>
+                {
+                    stand
+                    ? <Button
+                        type    = { status.color }
+                        iconSet = { status.iconSet }
+                        icon    = { status.icon }
+                        onPress = { !stand.visited ? () => navigation.navigate('Scanner') : null }
+                    >{ status.text }</Button>
+                    : null
+                }
+            </View>
+            {
+                stand
+                ? <>
+                    <Paragraph
+                        size   = 'lg'
+                        bold   = { true }
+                        center = { true }
+                        marge  = { 20 }
+                    >{stand.name}</Paragraph>
+                    <CompanyCarousel companies={companies}/>
+                </>
+                : null
+            }
+            {
+                game ? <View style={{ padding: 20 }}>
+                    {
+                        game.type === 'Quizz'
+                        ? <QuizzComponent game={ game } handleEnd={ handleEndGame }/>
+                        : game.type === 'Intruder'
+                        ? <IntruderComponent game={ game } handleEnd={ handleEndGame }/>
+                        : game.type === 'HangedMan'
+                        ? <HangedManComponent game={ game } handleEnd={ handleEndGame }/>
+                        : game.type === 'Tetris'
+                        ? <TetrisComponent game={ game } handleEnd={ handleEndGame }/>
+                        : null
+                    }
+                </View> : null
+            }
         </DefaultPage>
     );
 }
