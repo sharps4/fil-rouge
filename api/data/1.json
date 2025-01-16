@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "from": "2025-01-01 00:00:00",
+  "to": "2025-01-05 00:00:00",
+  "description": "Ceci est la description de l'application LH Port Days pour 2025",
+  "site": "https://www.lhportdays.fr",
+  "entities": [
+    {"model": "Color", "name": "primary", "code": "#033165"},
+    {"model": "Color", "name": "secondary", "code": "#ff7f00"},
+    {"model": "Color", "name": "light", "code": "#f7f7f7"},
+    {"model": "Color", "name": "dark", "code": "#171717"},
+    {"model": "Color", "name": "disabled", "code": "#aaaaaa"},
+    {"model": "Color", "name": "valid", "code": "#0f0"},
+    {"model": "Color", "name": "error", "code": "#f00"},
+    {"model": "Map", "name": "Map 0"},
+    {"model": "Map", "name": "Map 1"},
+    {"model": "Stand", "name": "Stand 1", "map": "Map 0", "x": 0, "y": 0, "width": 2, "height": 1},
+    {"model": "Stand", "name": "Stand 2", "map": "Map 0", "x": 2, "y": 2, "width": 1, "height": 1},
+    {"model": "Stand", "name": "Stand 10", "map": "Map 1", "x": 0, "y": 0, "width": 2, "height": 2},
+    {"model": "Company", "name": "Company 1", "stand": "Stand 1", "description": "Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1", "site": "perdu.com", "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAjSURBVChTY3gro4KMlDb6IKMBlbb3OIOM/n9iQEYDJ/2JAQCUl4sR+8CN3AAAAABJRU5ErkJggg==", "activitySector": "abc"},
+    {"model": "Company", "name": "Company 2", "stand": "Stand 1", "description": "Description de la Company 2 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1 Description de la Company 1", "site": "perdu.com", "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAjSURBVChTY3gro4KMlDb6IKMBlbb3OIOM/n9iQEYDJ/2JAQCUl4sR+8CN3AAAAABJRU5ErkJggg==", "activitySector": "def"},
+    {"model": "Credits", "name": "Etudiant 0", "rule": "Role 0"},
+    {"model": "Credits", "name": "Etudiant 1", "rule": "Role 1"},
+    {"model": "Credits", "name": "Etudiant 2", "rule": "Role 2"}
+  ]
+}
