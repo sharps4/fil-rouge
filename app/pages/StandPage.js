@@ -88,30 +88,30 @@ export default function StandPage() {
             {
                 stand
                 ? <>
-                    <Paragraph
+                    {/* <Paragraph
                         size   = 'lg'
                         bold   = { true }
                         center = { true }
                         marge  = { 20 }
                     >{stand.name}</Paragraph>
-                    <CompanyCarousel companies={companies}/>
+                    <CompanyCarousel companies={companies}/> */}
+                    {
+                        stand.visited && game ? <View style={{ padding: 20 }}>
+                            {
+                                game.type === 'Quizz'
+                                ? <QuizzComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                : game.type === 'Intruder'
+                                ? <IntruderComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                : game.type === 'HangedMan'
+                                ? <HangedManComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                : game.type === 'Tetris'
+                                ? <TetrisComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                : null
+                            }
+                        </View> : null
+                    }
                 </>
                 : null
-            }
-            {
-                game ? <View style={{ padding: 20 }}>
-                    {
-                        game.type === 'Quizz'
-                        ? <QuizzComponent game={ game } handleEnd={ handleEndGame }/>
-                        : game.type === 'Intruder'
-                        ? <IntruderComponent game={ game } handleEnd={ handleEndGame }/>
-                        : game.type === 'HangedMan'
-                        ? <HangedManComponent game={ game } handleEnd={ handleEndGame }/>
-                        : game.type === 'Tetris'
-                        ? <TetrisComponent game={ game } handleEnd={ handleEndGame }/>
-                        : null
-                    }
-                </View> : null
             }
         </DefaultPage>
     );

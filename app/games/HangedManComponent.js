@@ -1,3 +1,3 @@
-export default function HangedManComponent({ game, handleEnd }) {
+export default function HangedManComponent({ id, handleEnd }) {
     return null;
 }

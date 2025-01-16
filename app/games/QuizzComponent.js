@@ -7,7 +7,7 @@ import Quizz from '../models/Quizz';
 import QuizzQuestion from '../models/QuizzQuestion';
 import Color from '../models/Color';
 
-export default function QuizzComponent({ game, handleEnd }) {
+export default function QuizzComponent({ id, handleEnd }) {
     const navigation = useNavigation();
 
     const [quizz, setQuizz] = useState(null);
@@ -20,7 +20,7 @@ export default function QuizzComponent({ game, handleEnd }) {
     const [score, setScore] = useState(0);
 
     useEffect(() => {
-        const process = async () => setQuizz(await Quizz.findById(game.gameId));
+        const process = async () => setQuizz(await Quizz.findById(id));
         process();
     }, []);
 
