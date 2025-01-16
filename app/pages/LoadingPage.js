@@ -8,6 +8,8 @@ import Color from '../models/Color';
 import Company from '../models/Company';
 import Credits from '../models/Credits';
 import Game from '../models/Game';
+import Intruder from '../models/Intruder';
+import IntruderImage from '../models/IntruderImage';
 import Map from '../models/Map';
 import Quizz from '../models/Quizz';
 import QuizzQuestion from '../models/QuizzQuestion';
@@ -29,7 +31,7 @@ export default function LoadingPage() {
     useEffect(() => {
         const process = async () => {
             await Database.init();
-            const models = { Color, Company, Credits, Game, Map, Quizz, QuizzQuestion, Stand };
+            const models = { Color, Company, Credits, Game, Intruder, IntruderImage, Map, Quizz, QuizzQuestion, Stand };
             const entities = {};
             for (const model in models) await models[model].init();
             // fetch(`http://10.0.2.2/api?version=${Setup.version}`)

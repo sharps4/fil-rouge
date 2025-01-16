@@ -1,3 +1,3 @@
-export default function TetrisComponent({ game, handleEnd }) {
+export default function TetrisComponent({ id, handleEnd }) {
     return null;
 }
