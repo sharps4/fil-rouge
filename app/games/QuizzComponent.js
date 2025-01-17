@@ -102,13 +102,11 @@ export default function QuizzComponent({ id, handleEnd }) {
                         </Button>
                     ) : null}
                 </> : null
-            ) : played ? (
-                <>
-                    <Paragraph type='dark' center={ true }>Vous avez obtenu un score de {score}/4</Paragraph>
-                    <Button center={ true } onPress={ () => navigation.navigate('Map') }>Retour à la carte</Button>
-                    <Button center={ true } onPress={ handlePlay }>Recommencer le quizz</Button>
-                </>
-            ) : (
+            ) : played ? <>
+                <Paragraph type='dark' center={ true }>Vous avez obtenu un score de {score}/4</Paragraph>
+                <Button center={ true } onPress={ () => navigation.navigate('Map') }>Retour à la carte</Button>
+                <Button center={ true } onPress={ handlePlay }>Recommencer le quizz</Button>
+            </> : (
                 <Button center={ true } onPress={ handlePlay }>Faire le quizz</Button>
             )}
         </View>

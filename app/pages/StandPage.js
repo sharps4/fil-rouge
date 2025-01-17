@@ -1,6 +1,6 @@
 import { useRoute, useNavigation } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { useEffect, useRef, useState } from 'react';
+import { View, ScrollView } from 'react-native';
 import DefaultPage from './DefaultPage';
 import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
@@ -16,6 +16,8 @@ import TetrisComponent from '../games/TetrisComponent';
 export default function StandPage() {
     const route = useRoute();
     const navigation = useNavigation();
+
+    const ref = useRef(null);
 
     const [stand, setStand] = useState(null);
     const [companies, setCompanies] = useState([]);
@@ -45,74 +47,84 @@ export default function StandPage() {
     const status = (
         stand === null || !stand.visited
         ? {
-            color:   'error',
-            iconSet: 'AntDesign',
-            icon:    'qrcode',
-            text:    'Scanner le QR code',
+            color:    'error',
+            iconSet:  'AntDesign',
+            icon:     'qrcode',
+            text:     'Scanner le QR code',
+            callback: () => navigation.navigate('Scanner'),
         } : game && !game.played
         ? {
-            color:   'warning',
-            iconSet: 'FontAwesome',
-            icon:    'gamepad',
-            text:    'Jouer au mini-jeu',
+            color:    'warning',
+            iconSet:  'FontAwesome',
+            icon:     'gamepad',
+            text:     'Jouer au mini-jeu',
+            callback: () => ref.current.scrollToEnd({animated: true}),
         } : {
-            color:   'valid',
-            iconSet: 'Feather',
-            icon:    'check',
-            text:    'Stand validé',
+            color:    'valid',
+            iconSet:  'Feather',
+            icon:     'check',
+            text:     'Stand validé',
+            callback: null,
         }
     );
 
     return (
         <DefaultPage>
-            <View style={{
-                flexDirection:  'row',
-                justifyContent: 'space-between',
-                marginBottom:   40,
-            }}>
-                <Button
-                    type    = 'light'
-                    onPress = { () => navigation.navigate(route.params.from) }
-                >Retour</Button>
+            <ScrollView ref={ ref }>
+                <View style={{
+                    flexDirection:  'row',
+                    justifyContent: 'space-between',
+                    marginBottom:   40,
+                }}>
+                    <Button
+                        type    = 'light'
+                        onPress = { () => navigation.navigate(route.params.from) }
+                    >Retour</Button>
+                    {
+                        stand
+                        ? <Button
+                            type    = { status.color }
+                            iconSet = { status.iconSet }
+                            icon    = { status.icon }
+                            onPress = { status.callback }
+                        >{ status.text }</Button>
+                        : null
+                    }
+                </View>
                 {
                     stand
-                    ? <Button
-                        type    = { status.color }
-                        iconSet = { status.iconSet }
-                        icon    = { status.icon }
-                        onPress = { !stand.visited ? () => navigation.navigate('Scanner') : null }
-                    >{ status.text }</Button>
+                    ? <>
+                        <Paragraph
+                            size   = 'lg'
+                            bold   = { true }
+                            center = { true }
+                            marge  = { 20 }
+                        >{stand.name}</Paragraph>
+                        <CompanyCarousel companies={companies}/>
+                        {
+                            stand.visited && game ? (
+                                <View style={{
+                                    marginTop: 40,
+                                    padding:   20,
+                                }}>
+                                    {
+                                        game.type === 'Quizz'
+                                        ? <QuizzComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                        : game.type === 'Intruder'
+                                        ? <IntruderComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                        : game.type === 'HangedMan'
+                                        ? <HangedManComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                        : game.type === 'Tetris'
+                                        ? <TetrisComponent id={ game.gameId } handleEnd={ handleEndGame }/>
+                                        : null
+                                    }
+                                </View>
+                             ) : null
+                        }
+                    </>
                     : null
                 }
-            </View>
-            {
-                stand
-                ? <>
-                    {/* <Paragraph
-                        size   = 'lg'
-                        bold   = { true }
-                        center = { true }
-                        marge  = { 20 }
-                    >{stand.name}</Paragraph>
-                    <CompanyCarousel companies={companies}/> */}
-                    {
-                        stand.visited && game ? <View style={{ padding: 20 }}>
-                            {
-                                game.type === 'Quizz'
-                                ? <QuizzComponent id={ game.gameId } handleEnd={ handleEndGame }/>
-                                : game.type === 'Intruder'
-                                ? <IntruderComponent id={ game.gameId } handleEnd={ handleEndGame }/>
-                                : game.type === 'HangedMan'
-                                ? <HangedManComponent id={ game.gameId } handleEnd={ handleEndGame }/>
-                                : game.type === 'Tetris'
-                                ? <TetrisComponent id={ game.gameId } handleEnd={ handleEndGame }/>
-                                : null
-                            }
-                        </View> : null
-                    }
-                </>
-                : null
-            }
+            </ScrollView>
         </DefaultPage>
     );
 }
