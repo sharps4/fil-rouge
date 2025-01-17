@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Dimensions, View, TouchableOpacity, Image } from 'react-native';
 import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
@@ -10,13 +11,20 @@ import { shuffle } from '../utils';
 const windowWidth = Dimensions.get('window').width;
 
 export default function IntruderComponent({ id, handleEnd }) {
+    const navigation = useNavigation();
+
     const [intruder, setIntruder] = useState(null);
     const [images, setImages] = useState(null);
     const [played, setPlayed] = useState(false);
     const [playing, setPlaying] = useState(false);
     const [choosen, setChoosen] = useState(-1);
 
-    useEffect(() => {
+    const imageSize = (windowWidth-200)/2;
+
+    const handlePlay = () => {
+        setPlayed(false);
+        setPlaying(true);
+        setChoosen(-1);
         const process = async () => {
             const intruder = await Intruder.findById(id);
             const imageAll = shuffle(await IntruderImage.findAll());
@@ -32,14 +40,6 @@ export default function IntruderComponent({ id, handleEnd }) {
             }
         };
         process();
-    }, []);
-
-    const imageSize = (windowWidth-200)/2;
-
-    const handlePlay = () => {
-        setPlayed(false);
-        setPlaying(true);
-        setChoosen(-1);
     }
 
     const handleAnswer = i => {
@@ -88,12 +88,12 @@ export default function IntruderComponent({ id, handleEnd }) {
                 ) : null
             }
             {
-                played ? (
-                    <>
+                !playing ?
+                    played ? <>
                         <Button center={ true } onPress={ () => navigation.navigate('Map') }>Retour à la carte</Button>
                         <Button center={ true } onPress={ handlePlay }>Rejouer au jeu de l'intrus</Button>
-                    </>
-                ) : <Button center={ true } onPress={ handlePlay }>Jouer au jeu de l'intrus</Button>
+                    </> : <Button center={ true } onPress={ handlePlay }>Jouer au jeu de l'intrus</Button>
+                : null
             }
         </View>
     );
